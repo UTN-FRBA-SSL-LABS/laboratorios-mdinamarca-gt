@@ -12,7 +12,12 @@
  */
 
 int main(int argc, char *argv[]) {
-    (void)argc; (void)argv;
-    /* TODO */
+    if (argc <= 1) return 0;
+    const char *ref = argv[1];
+    for (char **arg = argv + 2; *arg != NULL; arg++) {
+        if (!AreEqual(ref, *arg)) {
+            return 1;
+        }
+    }
     return 0;
 }
